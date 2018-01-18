@@ -54,3 +54,35 @@ if len(form_data) != 0:
                 print(cookie)
         except (db.Error, IOError):
             result = '<p id="result"Error connection to database</p>'
+print('Content-Type: text/html')
+print()
+print("""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Register</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+        %s
+    </head>
+        <body>
+            <form action="register.py" method="post">
+            <br>
+                <label for="username"><span>User name: </span></label>
+                <input type="text" name="username" id="username" value="%s"><br>
+                <label for="email1"><span>Email: </span></label>
+                <input type="text" name="email1" id="email1"><br>
+                <label for="username"><span>Confirm email: </span></label>
+                <input type="text" name="email2" id="email2"><br>
+                <label for="password1"><span>Password: </span></label>
+                <input type="password" name="password1" id="password1"><br>
+                <label for="passwords2"><span>Re-enter password: </span></label>
+                <input type="password" name="password2" id="password2"><br>
+                <input type="submit" value="Register">
+            </form>
+            %s
+        </body>
+    </html>""" % (redirect ,username, result))
+
