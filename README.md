@@ -1,4 +1,4 @@
-# TeamSoftware
+SushiGo
 The main deliverable of the project is an online multi-player game that can be played (online) with at least 4 different players (it is up to you to decide the upper limit for the number of players). Rather than inventing a new game, it is strongly advised to implement an existing game, though game improvements and additions could be made. Also, it is advised to implement a turn-based game, rather than realtime games such as DOOM or Quake (or insert modern equivalent here). Semi-realtime games include Transport Tycoon, SimCity, and Command & Conquer (and similar games, starting with Dune 2 in the 1990s); all of these feature animation. Examples of turn-based games are:
 
     Risk
