@@ -26,9 +26,9 @@ if len(form_data) != 0:
         result = """<p id="result">***Error: use a valid email address***</p>"""
     else:
         try:
-            connection = db.connect('''database info''')
+            connection = db.connect('cs1dev.ucc.ie', 'cdl1', 'aipahxoh', '2019_cdl1')
             cursor = connection.cursor(db.cursors.DictCursor)
-            # ToDO: Set up database
+            # Todo: Set up tables
             cursor.execute("""SELECT * FROM users WHERE username = %s""", (username))
             if cursor.rowcount > 0:
                 result = '<p id="result">***Error: user name already taken***</p>'
@@ -85,4 +85,3 @@ print("""
             %s
         </body>
     </html>""" % (redirect ,username, result))
-
