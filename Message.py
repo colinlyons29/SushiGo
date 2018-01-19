@@ -1,3 +1,9 @@
+""" This file contains the Message class used to create Message objects that
+    are the basis of communication between the server and the clients.
+    The file also contains two methods: compressMessage() and uncompressMessage()
+    as well as a unit test.
+    Author: Jakub Piatek 115348936 """
+
 class Message(object):
     """ The Message object used for exchanging information between the server
         and the clients. """
@@ -17,22 +23,33 @@ class Message(object):
         self._contents = new
 
 def compressMessage(msg):
+    """ Pickle and compress the Message object so that it can be sent across
+        network. """
     import gzip
     import pickle as pickle
+
     if not isinstance(msg, Message):
         return "Please only use Message object!"
+
     outmsg = "foo"
     return outmsg
 
 
 def uncompressMessage(msg):
+    """ Uncompress and unpickle the Message object so that it can be processed
+        by the receiver. """
     import gzip
     import pickle as pickle
 
     outmsg = "bar"
     return outmsg
 
+#------------------------- Testing -------------------------
+
 def main():
+    """ Unit test for Message class, it's methods and the compressMessage() and
+        uncompressMessage() functions. All methods of the Message class, excluding
+        getters and setters, are tested. """
     msg1 = Message("Test Message")
     print(msg1)
     print("")
@@ -49,7 +66,6 @@ def main():
     eumsg = uncompressMessage("foobar")
     print(ecmsg)
     print("")
-
 
 if __name__ == '__main__':
     main()
