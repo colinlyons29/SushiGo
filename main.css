@@ -1,0 +1,17 @@
+/* Set the height & width of the canvas (16:9 aspect ratio)
+   Position it in the middle of the page
+   Set border color and background color of the canvas */
+#sushiCanvas {
+    height: 720px;
+    width: 1280px;
+    padding: 0;
+    margin: auto;
+    display: block;
+    border: 1px solid black;
+    background-color: white;
+}
+
+/* Set background color of the webpage */
+body {
+    background-color: black;
+}
