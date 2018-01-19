@@ -7,11 +7,13 @@ print('Content-Type: text/html')
 print()
 result = ''
 try:
+    # If no cookie exists, user is already logged out
     cookie = SimpleCookie()
     http_cookie_header = environ.get('HTTP_COOKIE')
     if not http_cookie_header:
         result = '<p>You are already logged out</p>'
     else:
+        # Load cookie, and set authenticated value to false
         cookie.load(http_cookie_header)
         if "sid" in cookie:
             sid = cookie['sid'].value
@@ -23,6 +25,7 @@ try:
                 """
 except IOError:
     result = '<p>Error logging out</p>'
+# Redirect user to login page after logging out
 print("""
     <!DOCTYPE html>
     <html lang="en">

@@ -10,37 +10,51 @@ import subprocess
 form_data = FieldStorage()
 username = ''
 result = ''
+# If data is entered into the form
 if len(form_data) != 0:
+    # Sanatize inputs
     email1 = escape(form_data.getfirst('email1', '').strip())
     email2 = escape(form_data.getfirst('email2', '').strip())
     username = escape(form_data.getfirst('username', '').strip())
     password1 = escape(form_data.getfirst('password1', '').strip())
     password2 = escape(form_data.getfirst('password2', '').strip())
+    # Check all inputs in the form are filled in
     if not username or not password1 or not password2 or not email1 or not email2:
         result = '<p id="result">***Error: Email address, Username, and Password fields are required***</p>'
+    # If passwords aren't equal
     elif password1 != password2:
         result = '<p id="result">***Error: Password fields must be equal***</p>'
+    # If email's aren't equal
     elif email1 != email2:
         result = '<p id="result">***Error: Email fields must be equal***</p>'
+    # If the email entered is not a real address
     elif "@" not in email1 or "@" not in email2 or "." not in email1 or "." not in email2:
         result = """<p id="result">***Error: use a valid email address***</p>"""
     else:
         try:
+            # Connect to DB
             connection = db.connect('cs1dev.ucc.ie', 'cdl1', 'aipahxoh', '2019_cdl1')
             cursor = connection.cursor(db.cursors.DictCursor)
             # Todo: Set up tables
+            # Check if user already exists
             cursor.execute("""SELECT * FROM users WHERE username = %s""", (username))
             if cursor.rowcount > 0:
                 result = '<p id="result">***Error: user name already taken***</p>'
+            # Check if email entered already exists 
             cursor.execute("""SELECT * FROM users WHERE email = %s""", (email1))
             if cursor.rowcount > 0:
                 result = '<p id="result">***Error: email address already in use***</p>'
             else:
+                # Hash password
                 sha256_password = sha256(password1.encode()).hexdigest()
+                # Enter the username, email address and the hashed sha256 password into the database
                 cursor.execute("""INSERT INTO users (username, email, user_password) VALUES (%s, %s, %s)""", (username, email1, sha256_password))
+                # Commit changes
                 connection.commit()
                 cursor.close()  
+                # Close connection
                 connection.close()
+                # Create cookie to identify authenticated users
                 cookie = SimpleCookie()
                 sid = sha256(repr(time()).encode()).hexdigest()
                 cookie['sid'] = sid
@@ -54,6 +68,7 @@ if len(form_data) != 0:
                 print(cookie)
         except (db.Error, IOError):
             result = '<p id="result"Error connection to database</p>'
+# Main page content
 print('Content-Type: text/html')
 print()
 print("""

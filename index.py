@@ -66,22 +66,29 @@ formempty="""
         </body>
         </html>
 """
+# If data is entered to form
 if len(form_data) != 0:
+    # Input sanitization
     email = escape(form_data.getfirst('email', '').strip())
     password = escape(form_data.getfirst('password', '').strip())
+    # If something isn't filled in
     if not email or not password:
         result = '<p id="result">Error: email and password are required</p>'
     else:
+        # Hash password given
         sha256_password = sha256(password.encode()).hexdigest()
         try:
+            # Connect to DB
             connection = db.connect('cs1dev.ucc.ie', 'cdl1', 'aipahxoh', '2019_cdl1')
             cursor = connection.cursor(db.cursors.DictCursor)
+            # Find user with valid password, and the same email
             cursor.execute("""SELECT * FROM users 
                               WHERE email = %s
                               AND user_password = %s""", (email, sha256_password))
             if cursor.rowcount == 0:
                 result = '<p id="result">Error: Login incorrect</p>'
             else:
+                # Load cookie, and log the user in by setting the authenticated value to true
                 cookie = SimpleCookie()
                 sid = sha256(repr(time()).encode()).hexdigest()
                 cookie['sid'] = sid
