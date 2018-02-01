@@ -1,0 +1,6 @@
+CREATE TABLE GameStats (
+    PlayerID int,
+    PlayerName varchar(100),
+    GamesWon int,
+    TopScore int  
+);
