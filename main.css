@@ -19,9 +19,20 @@
 		#top { top: 0; }
 		#bottom { bottom: 0; }
 		
-#images{
-	justify-content:space-evenly;
-	position:center;
+div#container{
+  position:relative;
+   
+}
+/* Cards container */
+div#container2{
+  position:absolute;
+  left:50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+    background: #edf8ff; 
+  border-radius: 15px;
+  
+   
 }
 
 @media 
@@ -83,6 +94,10 @@ body{
   font-size: 3em;
   text-align: left;
   border-radius: 15px;
+  padding-left: 23px;
+  line-height: 100px;
+  position: relative;
+  z-index: 0;
 }
 .flex-container2 .flex-item {
   background:#fefefe;
@@ -97,8 +112,176 @@ body{
   font-size: 3em;
   text-align: center;
   border-radius: 15px;
+  position: relative;
 }
 .wrapper{
 	height:auto;
 	width:auto;
+}
+
+/* Hover tooltips */
+.image-wrapper {
+  position:relative;
+  cursor:pointer;
+  display: inline-block;
+}
+  .image-wrapper .tooltip {
+      position:absolute;
+      max-width: 200px;
+      max-height: 280px;
+      top:105px; /* - top padding */
+      right:9999px;
+      width:200px;
+      margin-top:-420px; /* width + left/right padding */
+      padding:10px;
+      color:#fff;
+      background:#333;
+      -webkit-box-shadow:2px 2px 5px #aaa;
+         -moz-box-shadow:2px 2px 5px #aaa;
+              box-shadow:2px 2px 5px #aaa;
+      opacity:0;
+      -webkit-transition:opacity 250ms ease-out;
+         -moz-transition:opacity 250ms ease-out;
+          -ms-transition:opacity 250ms ease-out;
+           -o-transition:opacity 250ms ease-out;
+              transition:opacity 250ms ease-out;
+  }
+  
+      .image-wrapper .tooltip:before {
+          content:' '; /* Must have content to display */
+          position:absolute;
+          top:50%;
+          left:-16px; /* 2 x border width */
+          width:0;
+          height:0;
+          margin-top:-8px; /* - border width */
+          border:8px solid transparent;
+          border-right-color:#333;
+      }
+      .image-wrapper:hover .tooltip {
+          right:-44px;
+          opacity:1;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .image-wrapper:first-child:hover .tooltip {
+          right:-89px;
+          opacity:1;
+      }
+
+      .negativeZ { 
+         z-index: -3 !important;
+       }
+
+       #submit {
+        position: relative;
+        background-color: #4CAF50;
+        border: none;
+        font-size: 20px;
+        color: #FFFFFF;
+        padding: 10px;
+        width: 110px;
+        margin-left: 2%;
+        text-align: center;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+        opacity: 0.7;
+        left:2px;
+    }
+
+    #submit:hover {
+      opacity: 1;
+      transform: scale(1.1,1.1);
+      transition: all ease-in-out 250ms;
+    }
+
+
+       .submited-card { pointer-events: none; }
+
+
+       .score-div {
+        position: absolute;
+        background-color: #4CAF50;
+        border: none;
+        font-size: 20px;
+        color: #FFFFFF;
+        padding: 10px;
+        height: 100px;
+        display: inline-block;
+        width: 100px;
+        right: 9.4%;
+        border-radius: 5%;
+        top: 10%;
+        text-align: center;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        text-decoration: none;
+        overflow: hidden;
+        float: left;
+        left: -132px;
+        top: 8px;
+       }
+
+       .alert-div {
+         color: #FFFFFF;
+       };
+
+       .flex-item .image-wrapper:first-child {
+          padding-left: 20px;
+       }
+
+       #modal-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #666;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 999;
+}
+
+.modal {
+  background: #f1f1f1;
+    width: 50%;
+    position: absolute;
+    height: 50%;
+    top: 25%;
+    left: 25%;
+}
+
+#modal-body {
+    text-align: center;
+    padding: 10px;
+    font-size: 31px;
+    padding: 50px;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+.close-modal {
+  float: left;  
+    margin: 0 5px 5px 0;  
+    width: 60px;  
+    height: 60px;  
+    font-size: 24px;
+    line-height: 60px;  
+    text-align: center;  
+    background: #fff;  
+    border: 1px solid #f9f9f9;  
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .4s;
+}
+
+.close-modal {
+  position: absolute;
+    left: 64%;
+    top: 54%;
+    width: 140px;
 }
