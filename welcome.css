@@ -1,0 +1,138 @@
+body {
+		text-align: center;
+		background: #0a507c;
+		margin: 0px;
+}
+
+
+a {
+		color: #000;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-family: Helvetica;
+}
+
+
+
+/* PLAY BUTTON */
+.highlight1 .buttonPlay {
+		display: inline-block;
+		color: #fff;
+		background: #4CAF50;
+		margin: 20px;
+		width: 140px;
+		height: 50px;
+		line-height: 40px;
+		border-radius: 10px;
+		position: relative;
+		overflow: hidden;
+}
+
+.highlight1 .buttonPlay:before {
+		content: "";
+		position: absolute;
+		top: -30px;
+		left: -80px;
+		height: 100px;
+		width: 70px;
+		background: rgba(255, 255, 255, .7);
+		transform: rotate(20deg);
+}
+
+.highlight1 .buttonPlay:hover:before {
+		left: 150px;
+		transition: all .5s;
+}
+.highlight1 {margin-bottom:100px;}
+/* STATS BUTTON */
+.highlight2 .buttonStats {
+		display: inline-block;
+		color: #fff;
+		background: #FF8C00;
+		margin: 20px;
+		width: 140px;
+		height: 50px;
+		line-height: 40px;
+		border-radius: 10px;
+		position: relative;
+		overflow: hidden;
+}
+
+.highlight2 .buttonStats:before {
+		content: "";
+		position: absolute;
+		top: -30px;
+		left: -80px;
+		height: 100px;
+		width: 70px;
+		background: rgba(255, 255, 255, .7);
+		transform: rotate(20deg);
+}
+
+.highlight2 .buttonStats:hover:before {
+		left: 150px;
+		transition: all .5s;
+}
+.highlight2 {margin-bottom:100px;}
+/* LOGOUT BUTTON */
+.highlight3 .buttonLogout {
+		display: inline-block;
+		color: #fff;
+		background: darkred;
+		margin: 20px;
+		width: 140px;
+		height: 50px;
+		line-height: 40px;
+		border-radius: 10px;
+		position: relative;
+		overflow: hidden;
+}
+
+.highlight3 .buttonLogout:before {
+		content: "";
+		position: absolute;
+		top: -30px;
+		left: -80px;
+		height: 100px;
+		width: 70px;
+		background: rgba(255, 255, 255, .7);
+		transform: rotate(20deg);
+}
+
+.highlight3 .buttonLogout:hover:before {
+		left: 150px;
+		transition: all .5s;
+}
+.highlight3 {margin-bottom:100px;}
+/* IMAGE STYLING */
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* NAVIGATION BAR STYLING */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+	position: fixed;
+	width: 100%;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 4px 6px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}

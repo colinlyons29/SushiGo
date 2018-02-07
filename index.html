@@ -22,18 +22,19 @@
   <div class ="wrapper">
   <div id="modal-wrapper" class="hidden">
         <div class="modal" id="modal">
-          <div id="modal-body">End of the round 1!</div>
+          <div id="modal-body">End of round 1!</div>
         </div>
         <button class="close-modal" id="continue">Contine</button>
       </div>
   <ul class="flex-container" id="board">
-  <li class="flex-item" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="score-div">0</span>1</li>
-  <li class="flex-item" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="score-div">0</span>2</li>
-  <li class="flex-item" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="score-div">0</span>3</li>
-  <li class="flex-item player4 drag-container"  id="myCol" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="score-div">0</span>4</li>
+  <li class="flex-item " ondrop="drop(event)" ondragover="allowDrop(event)"><span class="score-div">0</span>Player 4</li>
+  <li class="flex-item" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="score-div">0</span>Player 3</li>
+  <li class="flex-item" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="score-div">0</span>Player 2</li>
+  <li class="flex-item player1 drag-container"  id="myCol" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="score-div">0</span>You</li>
   </ul>
-  <button id="submit">Submit</button>
+  
   <div id="container">
+  <button id="submit">Submit</button>
     <div class="cardImages" id="container2">
         <ul id="images" class="drag-container" ondrop="drop(event)" ondragover="allowDrop(event)"> </ul>
     </div>

@@ -1,16 +1,16 @@
 var cardImage = new Array(); 
-cardImage[0] = "images/chopsticks.jpg";
-cardImage[1] = "images/dumpling.jpg";
-cardImage[2] = "images/maki1.jpg";
-cardImage[3] = "images/maki2.jpg";
-cardImage[4] = "images/maki3.jpg";
-cardImage[5] = "images/pudding.jpg";
-cardImage[6] = "images/sashimi.jpg";
-cardImage[7] = "images/tempura.jpg";
-cardImage[8] = "images/wasabi.jpg";
-cardImage[9] = "images/eggnigiri.jpg";
-cardImage[10] = "images/salmonnigiri.jpg";
-cardImage[11] = "images/squidnigiri.jpg";
+cardImage[0] = "Images/pudding.png";
+cardImage[1] = "Images/dumpling.png";
+cardImage[2] = "Images/1_maki_roll.png";
+cardImage[3] = "Images/2_maki_roll.png";
+cardImage[4] = "Images/3_maki_roll.png";
+cardImage[5] = "Images/pudding.png";
+cardImage[6] = "Images/sashimi.png";
+cardImage[7] = "Images/tempura.png";
+cardImage[8] = "Images/wasabi.png";
+cardImage[9] = "Images/egg_nigiri.png";
+cardImage[10] = "Images/salmon_nigiri.png";
+cardImage[11] = "Images/squid_nigiri.png";
 
 
 //yates shuffle to randomize cards
@@ -78,7 +78,7 @@ $(function() {
             displayHand();
 
             //Clear the board
-            $(".player4 .submited-card").remove();
+            $(".player1 .submited-card").remove();
 
             //End of round dialog
             $("#modal-wrapper").removeClass("hidden");

@@ -193,6 +193,10 @@ body{
         cursor: pointer;
         opacity: 0.7;
         left:2px;
+		width: 20%;
+		margin-left: 40%;
+		margin-right: 40%
+		
     }
 
     #submit:hover {
@@ -272,7 +276,7 @@ body{
     font-size: 24px;
     line-height: 60px;  
     text-align: center;  
-    background: #fff;  
+    background: #4CAF50;;  
     border: 1px solid #f9f9f9;  
     border-radius: 5px;
     cursor: pointer;
