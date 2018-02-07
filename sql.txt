@@ -1,0 +1,38 @@
+CREATE TABLE Users (
+    id int NOT NULL AUTO_INCREMENT,
+    email varchar(255),
+    passHash varchar(255),
+    hasGoogle BOOLEAN,
+    primary key (id)
+);
+
+
+SELECT * from Users WHERE id =;
+SELECT id from Users WHERE id =;
+SELECT email from Users WHERE id =;
+SELECT passHash from Users WHERE id =;
+SELECT hasGoogle from Users WHERE id =;
+
+SELECT * from Users WHERE email =;
+SELECT id from Users WHERE email =;
+SELECT email from Users WHERE email =;
+SELECT passHash from Users WHERE email =;
+SELECT hasGoogle from Users WHERE email =;
+
+INSERT INTO Users (email, passHash, hasGoogle)
+VALUES ("","","");
+
+SELECT * from GameStats WHERE PlayerID =;
+SELECT id from GameStats WHERE PlayerID =;
+SELECT email from GameStats WHERE PlayerID =;
+SELECT passHash from GameStats WHERE PlayerID =;
+SELECT hasGoogle from GameStats WHERE PlayerID =;
+
+SELECT * from GameStats WHERE PlayerName =;
+SELECT id from GameStats WHERE PlayerName =;
+SELECT email from GameStats WHERE PlayerName =;
+SELECT passHash from GameStats WHERE PlayerName =;
+SELECT hasGoogle from GameStats WHERE PlayerName =;
+
+INSERT INTO GameStats (PlayerID, PlayerName, GamesWon, TopScore)
+VALUES ("","", , );
