@@ -100,7 +100,7 @@ if len(form_data) != 0:
                 connection.close()
                 print(cookie)
         except (db.Error, IOError):
-            result = '<p id="resut">Sorry! We are experiencing problems at the moment. Please call back later.</p>'
+            result = '<p id="result">Sorry! We are experiencing problems at the moment. Please call back later.</p>'
 print("Content-Type: text/html")
 print()
 print(formempty %(result))
