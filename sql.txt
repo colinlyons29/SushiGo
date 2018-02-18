@@ -1,38 +1,95 @@
 CREATE TABLE Users (
-    id int NOT NULL AUTO_INCREMENT,
-    email varchar(255),
-    passHash varchar(255),
-    hasGoogle BOOLEAN,
-    primary key (id)
+    PlayerID int NOT NULL AUTO_INCREMENT,
+    PlayerName varchar(100),
+    PassHash varchar(255),
+    HasGoogle BOOLEAN,
+    PRIMARY KEY (PlayerID)
 );
 
 
-SELECT * from Users WHERE id =;
-SELECT id from Users WHERE id =;
-SELECT email from Users WHERE id =;
-SELECT passHash from Users WHERE id =;
-SELECT hasGoogle from Users WHERE id =;
+/*inserts new rows into Users table*/
+INSERT INTO Users (PlayerName, PassHash, HasGoogle)
+VALUES ("cdl1","dfgthysdg","1");
 
-SELECT * from Users WHERE email =;
-SELECT id from Users WHERE email =;
-SELECT email from Users WHERE email =;
-SELECT passHash from Users WHERE email =;
-SELECT hasGoogle from Users WHERE email =;
+/*When user signs in they should also be put into the GameStats table*/
+INSERT INTO GameStats (PlayerID,PlayerName,GamesWon,TopScore)
+VALUES (4,"their name",0,0);
 
-INSERT INTO Users (email, passHash, hasGoogle)
-VALUES ("","","");
+/*Change the password using the playerID number(for resets)*/
+UPDATE Users
+SET PassHash = "whatever"
+WHERE PlayerID = 3;
+
+/*Change the password using playername/email(for resets)*/
+SELECT PassHash 
+FROM Users
+WHERE PlayerID = 0;
+
+/*Selecting the password hash from username(for login)*/
+SELECT PassHash 
+FROM Users
+WHERE PlayerName = "Name/email";
+
+/*Selecting the password hash from playerID(for login)*/
+SELECT PassHash 
+FROM Users
+WHERE PlayerID = 0;
+
+
+
+
+
+CREATE TABLE GameStats (
+    PlayerID int,
+    PlayerName varchar(100),
+    GamesWon int,
+    TopScore int,
+    PRIMARY KEY (PlayerID)
+);
+
+/*When inserting new rows, get the player name and id from Users table and use gameswon should be 1 or 0*/
+INSERT INTO GameStats (PlayerID,PlayerName,GamesWon,TopScore)
+VALUES (0,"players name",1,20);
+
+/*For selecting gameswon and topscore with player id*/
+SELECT GamesWon, TopScore
+FROM GameStats
+WHERE PlayerID = 0;
+
+/*For selecting gameswon and topscore with player name*/
+SELECT GamesWon, TopScore
+FROM GameStats
+WHERE PlayerName = "their name";
+
+/*For updating the gameswon and topscore with a players id*/
+UPDATE GameStats
+SET GamesWon = 2, TopScore = 40
+WHERE PlayerID = 0;
+
+/*For updating the gameswon and topscore with a players name*/
+UPDATE GameStats
+SET GamesWon = 2, TopScore = 40
+WHERE PlayerName = 0;
+
+/*Various other select statements which might be used.*/
+SELECT * from Users WHERE PlayerID =;
+SELECT PlayerName from Users WHERE PlayerID =;
+SELECT PassHash from Users WHERE PlayerID =;
+SELECT HasGoogle from Users WHERE PlayerID =;
+
+SELECT * from Users WHERE PlayerName =;
+SELECT PlayerID from Users WHERE PlayerName =;
+SELECT PassHash from Users WHERE PlayerName =;
+SELECT HasGoogle from Users WHERE PlayerName =;
+
+
 
 SELECT * from GameStats WHERE PlayerID =;
-SELECT id from GameStats WHERE PlayerID =;
-SELECT email from GameStats WHERE PlayerID =;
-SELECT passHash from GameStats WHERE PlayerID =;
-SELECT hasGoogle from GameStats WHERE PlayerID =;
+SELECT PlayerName from GameStats WHERE PlayerID =;
+SELECT GamesWon from GameStats WHERE PlayerID =;
+SELECT TopScore from GameStats WHERE PlayerID =;
 
 SELECT * from GameStats WHERE PlayerName =;
-SELECT id from GameStats WHERE PlayerName =;
-SELECT email from GameStats WHERE PlayerName =;
-SELECT passHash from GameStats WHERE PlayerName =;
-SELECT hasGoogle from GameStats WHERE PlayerName =;
-
-INSERT INTO GameStats (PlayerID, PlayerName, GamesWon, TopScore)
-VALUES ("","", , );
+SELECT PlayerID from GameStats WHERE PlayerName =;
+SELECT GamesWon from GameStats WHERE PlayerName =;
+SELECT TopScore from GameStats WHERE PlayerName =;
