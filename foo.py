@@ -40,11 +40,23 @@ class Card(object):
     #cardType = property(getCardType)
 
 def constructDeck():
-    deck = []
+    """ Creates a full deck of cards. Each card is represented with a "Card"
+        object. Takes no parameters and returns an array of "Card"s. """
+    deck = [Card(i, "Sashimi") for i in range(1, 15)] +
+            [Card(i, "Tempura") for i in range(15, 29)] +
+            [Card(i, "Dumpling") for i in range(29, 43)] +
+            [Card(i, "MakiRollOne") for i in range(43, 49)] +
+            [Card(i, "MakiRollTwo") for i in range(49, 61)] +
+            [Card(i, "MakiRollThree") for i in range(61, 69)] +
+            [Card(i, "Pudding") for i in range(69, 79)] +
+            [Card(i, "Wasabi") for i in range(79, 85)] +
+            [Card(i, "EggNigiri") for i in range(85, 90)] +
+            [Card(i, "SalmonNigiri") for i in range(90, 100)] +
+            [Card(i) for i in range(15, 29)] +
     return deck
 
 def main():
-    """ Sample test block. Will autorun only if code executed directly """
+    """ Sample test block. It will autorun only if code is executed directly """
     lstCards = [Card(i, "Maki") for i in range(10)]
     for x in lstCards:
         print(x)
