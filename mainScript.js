@@ -1,3 +1,4 @@
+
 var cardImage = new Array(); 
 cardImage[0] = "Images/pudding.png";
 cardImage[1] = "Images/dumpling.png";
@@ -79,6 +80,9 @@ $(function() {
 
             //Clear the board
             $(".player1 .submited-card").remove();
+			$(".player2 .submited-card").remove();
+			$(".player3 .submited-card").remove();
+			$(".player4 .submited-card").remove();
 
             //End of round dialog
             $("#modal-wrapper").removeClass("hidden");
@@ -164,4 +168,40 @@ function hideTooltip() {
     var $tooltip = $(".tooltip");
 
     $tooltip.removeClass("hidden");
+}
+//method for taking in JSON object and converting it to javascript array
+function convertFromJson()
+{
+	var JSONstring='{ "Local People": { "label": "Local People", "data": 1 }, "Student": { "label": "Student", "data": 2 } }'
+    object = JSON.parse(JSONstring),
+    array = Object.keys(object).map(function(k) 
+	{
+        return object[k];	
+    });
+	
+	for (var key in array) //traverse the card array
+	{
+		let value = array[key];
+		console.log(value);//print  array
+		console.log(value.label);//print specific value from an array
+		//var cards = new Card(value.name,value.type,value.ID, value.isTagged);
+		//newCardArray.push(cards);
+	}
+
+}
+//method for taking in javascript array and converting it to JSON string
+function convertToJson(jarray)
+{
+	return JSON.stringify(jarray);
+	console.log(jarray);
+}
+
+//after converting JSON objects use this class to create Javascript card objects
+function Card(type, name, ID, isTagged) {
+    var classname = 'Card';
+    this.type = type;
+    this.name = name;
+	this.ID=ID;
+	isTagged=false;
+   
 }
