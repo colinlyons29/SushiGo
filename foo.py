@@ -8,7 +8,6 @@ class Card(object):
         self._id = idd
         self._cardType = cardType
         self._isTagged = isTagged
-        #self._numberInDeck = 0
 
     def __str__(self):
         """ String representation of the card object. """
@@ -18,6 +17,9 @@ class Card(object):
         outstr += " Tagged: " + str(self._isTagged)
         return outstr
 
+    """ Getters are provided for all instance variables.
+        Setter is provided only for the @isTagged as other instance variables
+        are constants. """
     def getID(self):
         return self._id
 
@@ -29,15 +31,6 @@ class Card(object):
 
     def setIsTagged(self, isTagged):
         self._isTagged = isTagged
-
-    #def getNumberInDeck(self):
-    #    return self._numberInDeck
-
-    #def setNumberInDeck(self, number):
-    #    self._numberInDeck = number
-
-    #number = property(getNumberInDeck,setNumberInDeck)
-    #cardType = property(getCardType)
 
 def constructDeck():
     """ Creates a full deck of cards. Each card is represented with a "Card"
@@ -62,7 +55,7 @@ def _toJSON(obj):
     out = json.dumps(obj)
     return out
 
-def _fromJSON(msg):
+def _fromJSON(obj):
     """ Takes a JSON and unpacks it into a Python data structure, allowing
         communication with JavaScript. """
     import json
@@ -83,39 +76,12 @@ def prepareCards(hand):
     """ Takes a @hand, a JSON dictionary, unpacks the dictionary into a Python
         dictionary. Then extracts information from the dictionary and creates a
         list of "Card" objects to be used by the game logic. """
+    hand = _fromJSON(hand)
     outHand = []
     for k in hand:
         card = Card(k, hand[k][0], hand[k][1])
         outHand.append(card)
     return outHand
-
-
-# Outdated code block, can be probably safely deleted.
-# def main1():
-#     lstCards = [Card(i, "Maki") for i in range(10)]
-#     for x in lstCards:
-#         print(x)
-
-#     cards = dict()
-
-#     for card in lstCards:
-#         cards[card.getID()] = [card.getCardType(), card.getIsTagged()]
-
-#     cards[3][1] = True
-
-#     for k in cards:
-#         v = cards[k]
-#         print("ID: " + str(k) + " Card Type: " + str(v[0]) + " Tagged: " + str(v[1]))
-
-#     import json
-
-#     outmsg = json.dumps(cards)
-#     inmsg = json.loads(outmsg)
-
-#     if inmsg is dict:
-#         for k in inmsg:
-#             v = cards[k]
-#             print("ID: " + str(k) + " Card Type: " + str(v[0]) + " Tagged: " + str(v[1]))
 
 def main():
     """ Sample test block. It will autorun only if code is executed directly """
