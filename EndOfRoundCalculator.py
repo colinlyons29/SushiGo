@@ -3,6 +3,9 @@ from Player import *
 from PremadeSelectedCards4 import *
 
 class EndOfRoundCalculator(object):
+#Takes in 4 players and the cards they selected. Calls the PointCalculator object's methods to
+#get points that can be calculated without other players' data before comparing maki icons to see
+#who scores points based on those.
 
     def __init__(self, pl1, pl2, pl3, pl4, sc1, sc2, sc3, sc4):
         self._player1 = pl1

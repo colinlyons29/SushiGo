@@ -1,6 +1,7 @@
 class Player(object):
 #Player object stores the players ip, their accumulated points and puddings, and their current maki icons
-    def __init__(self, ip):
+    def __init__(self, ip, user):
+        self._username = user
         self._ip = ip
         self._points = 0
         self._maki = 0
@@ -18,6 +19,9 @@ class Player(object):
     def getIP(self):
         return self._ip
 
+    def getUsername(self):
+        return self._username
+
     def takeInTotals(self, lst):
     #Points and puddings totals are increased while maki count resets as it doesn't persist
         self._points += lst[0]
@@ -27,6 +31,7 @@ class Player(object):
     def addPoints(self, num):
         self._points += num
 
+    username = property(getUsername)
     maki = property(getMaki)
     pudding = property(getPudding)
     ip = property(getIP)

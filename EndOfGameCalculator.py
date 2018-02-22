@@ -2,6 +2,8 @@ from Player import *
 from PremadeSelectedCards4 import *
 from EndOfRoundCalculator import *
 class EndOfGameCalculator(object):
+#Takes in the 4 player objects and compares their pudding count.
+#Currently calls print report to display these scores in the console
 
     def __init__(self, pl1, pl2, pl3, pl4):
         self._player1 = pl1
@@ -59,6 +61,7 @@ class EndOfGameCalculator(object):
         print("\n")
 
     def printReport(self):
+        #This will be updated to return the output to the clients
         winner = None
         points = 0
         ith = 0
