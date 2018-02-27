@@ -63,7 +63,7 @@ def _fromJSON(obj):
     return out
 
 def _storeJSON(jsonFile, outFile="f1.txt"):
-    """ Store a JSON, @jsonFile, in a @file. The default value for @outFile is
+    """ Store a JSON, @jsonFile, in a @outFile. The default value for @outFile is
         "f1.txt". """
     f = file(outFile, 'w')
     f.write(jsonFile)
