@@ -62,6 +62,20 @@ def _fromJSON(obj):
     out = json.loads(obj)
     return out
 
+def _storeJSON(jsonFile, outFile="f1.txt"):
+    """ Store a JSON, @jsonFile, in a @file. The default value for @outFile is
+        "f1.txt". """
+    f = file(outFile, 'w')
+    f.write(jsonFile)
+    f.close()
+    return outFile
+
+def _loadJSON(inFile="f1.txt"):
+    """ Load a JSON from a @inFile. The default value for @outFile is "f1.txt" """
+    f = file(inFile, 'r')
+    jsonFile = f.read()
+    return jsonFile
+
 def prepareHand(hand):
     """ Takes a @hand, a list of "Card"s objects, and turns it into a dictionary.
         Packs the dictionary into a JSON so that it's ready to be send to a
@@ -89,6 +103,5 @@ def main():
     for card in deck1:
         print(card)
     
-
 if __name__ == '__main__':
     main()
