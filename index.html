@@ -5,7 +5,12 @@
   <meta charset="UTF-8">
   <title>Sushi Go!</title>
   
-  <link rel = "stylesheet" type = "text/css" href = "main.css" />
+  <link rel = "stylesheet" type = "text/css" href = "game.css" />
+
+  <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  ></script>
+ <script type="text/javaScript" src="mainScript.js"></script>
  
 </head>
 
@@ -15,15 +20,26 @@
     <div id="top"></div>
     <div id="bottom"></div>
   <div class ="wrapper">
-  <ul class="flex-container">
-  <li class="flex-item">1</li>
-  <li class="flex-item">2</li>
-  <li class="flex-item">3</li>
-  <li class="flex-item">4</li>
+  <div id="modal-wrapper" class="hidden">
+        <div class="modal" id="modal">
+          <div id="modal-body">End of round 1!</div>
+        </div>
+        <button class="close-modal" id="continue">Continue</button>
+      </div>
+  <ul class="flex-container" id="board">
+  <li class="flex-item player4 drag-container"  id="p4" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="score-div" id="scoreP4">0</span>Player 4</li>
+  <li class="flex-item player3 drag-container"  id="p3" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="score-div" id="scoreP3">0</span>Player 3</li>
+  <li class="flex-item player2 drag-container"  id="p2" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="score-div" id="scoreP2">0</span>Player 2</li>
+  <li class="flex-item player1 drag-container"  id="myCol" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="score-div" id="scoreP1">0</span>You</li>
   </ul>
-  <ul class="flex-container2">
-  <li class="flex-item">1</li>
-  </ul>
+  
+  <div id="container">
+  <button id="submit">Submit</button>
+    <div class="cardImages" id="container2">
+        <ul id="images" class="drag-container" ondrop="drop(event)" ondragover="allowDrop(event)"> </ul>
+    </div>
+
+</div>
 </div>
 
   
