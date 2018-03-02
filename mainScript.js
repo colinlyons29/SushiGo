@@ -14,7 +14,7 @@ cardImage[10] = "Images/salmon_nigiri.png";
 cardImage[11] = "Images/squid_nigiri.png";
 
 
-//yates shuffle to randomize cards
+//Yates shuffle to randomize cards
 function shuffle(cardImage) {
     for (let i = cardImage.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -25,7 +25,7 @@ function shuffle(cardImage) {
 
 function displayHand() {
     var i = 0;
-    //make len equal to the number of unique cards (12) minus 5 (7)		
+    //Make len equal to the number of unique cards (12) minus 5 (7)		
     len = shuffle(cardImage).length-5; 
     
 	
@@ -42,20 +42,20 @@ function displayHand() {
         img.id = cardImage[i];
         img.style.zIndex = i;
         
-        //create tooltip image for cards
+        //Create tooltip image for cards
         img2.className = "tooltip";
         img2.src = cardImage[i];
         img2.id = cardImage[i];
 
-        //container for the image
+        //Container for the image
         span.className = 'image-wrapper';
-        //set draging event on the image container
+        //Set draging event on the image container
         span.setAttribute("ondragstart","drag(event)");
         span.setAttribute("ondragend","hideTooltip();");
         span.draggable="true";
-        //set id of the container related to the card image
+        //Set id of the container related to the card image
         span.id = "span-" + cardImage[i];
-        //apend images to container
+        //Apend images to container
         span.appendChild(img);
         span.appendChild(img2);
 
@@ -69,7 +69,7 @@ function displayHand() {
 $(function() {
     displayHand();
 
-    //Begining of the submit button logic
+    //Beginning of the submit button logic
     const submitButton = document.getElementById("submit");
 
     submitButton.addEventListener('click', function () {
@@ -144,7 +144,7 @@ $(function() {
     });
 });
 
-//Prepare target for droping
+//Prepare target for dropping
 function allowDrop(ev) {
     ev.preventDefault();
 }
@@ -153,7 +153,7 @@ function allowDrop(ev) {
 function drag(ev) {
     var $tooltip = $(".tooltip");
 
-    //Hide opened tooltip to not colide with draging
+    //Hide opened tooltip to not colide with dragging
     $tooltip.addClass("hidden");
 
     //Drag created wrapper span not only the image
@@ -170,25 +170,25 @@ function drop(ev) {
     
     var $target;
 
-    //if droped on container set target to it
+    //If dropped on container set target to it
     if($(ev.target).hasClass("drag-container")) {
         $target = ev.target;
     }
-    //if droped to inner element and not actual container
+    //If dropped to inner element and not actual container
     //set target to container containing the inner element
     else {
         $target = $(ev.target).closest(".drag-container");
     }
 
     try {
-    //check if card is dropped to the board and not the hand
+    //Check if card is dropped to the board and not the hand
     isBoard = $($target).parent().attr('id') == "board" ? true : false;
     
-    //if card is dropped on the board stage it for submition
+    //If card is dropped on the board stage it for submission
     if (isBoard) {
         $staged = $(".staged");
 
-        //if there is already one card staged and not sumbited yet
+        //If there is already one card staged and not sumbitted yet
         //return that card back to hand
         if ($staged.length) {
             let id = $staged.attr("id");
@@ -196,14 +196,14 @@ function drop(ev) {
         }
     }
 
-    //drop card
+    //Drop card
     $target.append(document.getElementById(data));
 
-        //if it's droped to the borad, stage the card for submition
+        //If it's dropped to the board, stage the card for submission
         if(isBoard) {
             $(document.getElementById(data)).addClass("staged");
         }
-        //if it's droped from board to hand, unstage the card
+        //If it's dropped from board to hand, unstage the card
         else {
             $(document.getElementById(data)).removeClass("staged");
         }
@@ -218,34 +218,38 @@ function hideTooltip() {
 
     $tooltip.removeClass("hidden");
 }
-//method for taking in JSON object and converting it to javascript array
+//Method for taking in JSON object and converting it to javascript array
 function convertFromJson()
 {
     var JSONstring='{ "cardID1": ["cardType1", "isTagged1"], "cardID2": ["cardType2", "isTagged2"] }'
     object = JSON.parse(JSONstring), //reads in the JSON
     array = Object.keys(object).map(function(k) 
 	{
-        return object[k];  //returns JSON as key:value pair
+	 //Returns JSON as key:value pair
+        return object[k];
     });
 	
-	for (var key in array) //traverse the card array
+	//Traverse the card array
+	for (var key in array) 
 	{
 		let value = array[key];
-		console.log(value);//print  array
-		console.log(value.label);//print specific value from an array
+		//Print  array
+		console.log(value);
+		//Print specific value from an array
+		console.log(value.label);
 		//var cards = new Card(value.name,value.type,value.ID, value.isTagged);
 		//newCardArray.push(cards);
 	}
 
 }
-//method for taking in javascript array and converting it to JSON string
+//Method for taking in javascript array and converting it to JSON string
 function convertToJson(jarray)
 {
 	return JSON.stringify(jarray);
 	console.log(jarray);
 }
 
-//after converting JSON objects use this class to create Javascript card objects
+//After converting JSON objects use this class to create Javascript card objects
 function Card(type, name, ID, isTagged) {
     var classname = 'Card';
     this.type = type;
