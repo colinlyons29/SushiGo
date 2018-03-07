@@ -1,14 +1,20 @@
+""" Takes in names of two shelves as arguments and uses information from those
+    shelves to calculate the points that each player has at the end of the round. """
+
 from pointCalc import *
 from Player import *
+from SelectedCards import *
+from sys import argv
+import shelve as shelve
 
 class EndOfRoundCalculator(object):
 #Takes in 4 players and the cards they selected. Calls the PointCalculator object's methods to
 #get points that can be calculated without other players' data before comparing maki icons to see
 #who scores points based on those.
 
-    def __init__(self, pl1, pl2, pl3, pl4, sc1, sc2, sc3, sc4):
-        self._playerlst = [pl1, pl2, pl3, pl4]
-        self._scList = [sc1, sc2, sc3, sc4]
+    def __init__(self, plist, sclist):
+        self._playerlst = plist
+        self._scList = sclist
         self.initialTotals()
         self.compareMaki()
         self.printReport()
@@ -67,15 +73,24 @@ class EndOfRoundCalculator(object):
             print("Player " + str(i+1) + " at IP: " + self._playerlst[i].ip + " now has " + str(self._playerlst[i].points) + " points and collected " + str(self._playerlst[i].pudding) + " pudding!")
         print("\n")
 
-def main():
-    from PremadeSelectedCards4 import *
-    player1 = Player("192.168.2.4")
-    player2 = Player("192.168.2.5")
-    player3 = Player("192.168.2.6")
-    player4 = Player("192.168.2.7")
-    selectedcards = PremadeSelectedCards4()
-    cards = selectedcards.returnSelectedCards()
-    points = EndOfRoundCalculator(player1, player2, player3, player4, cards[0], cards[1], cards[2], cards[3])
 
-if __name__ == '__main__':
-    main()
+pShelve = argv[1]
+scShelve = argv[2]
+
+plst = []
+d = shelve.open(pShelve)
+for k in d.keys():
+    p = Player(k, d[k])
+    plst.append(p)
+d.close()
+
+sclst = []
+d = shelve.open(scShelve)
+for k in d.keys():
+    sc = SelectedCards()
+    for c in d[k]:
+        sc.SelectCard(c)
+    sclst.append(sc)
+d.close()
+
+eor = EndOfRoundCalculator(plst, sclst)
