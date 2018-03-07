@@ -76,7 +76,7 @@ h1 {
     color: #fff;
 }
 
-p {
+p, #register {
     font-size: 14pt;
     font-family: Helvetica;
     color: #fff;
