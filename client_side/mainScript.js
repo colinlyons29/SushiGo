@@ -1,4 +1,5 @@
 
+//Array containing all card images
 var cardImage = new Array(); 
 cardImage[0] = "Images/pudding.png";
 cardImage[1] = "Images/dumpling.png";
@@ -23,17 +24,19 @@ function shuffle(cardImage) {
     return cardImage;
 }
 
+//Function to create the visual representation of the hand
 function displayHand() {
     var i = 0;
     //Make len equal to the number of unique cards (12) minus 5 (7)		
     len = shuffle(cardImage).length-5; 
     
-	
+    //Create the images and image tags	
     for (; i < len; i++) {
         var img = document.createElement("img");
         const img2 = document.createElement("img");
         const span = document.createElement('span');
         
+	//Create the image attributes
         img.className = "card-image";
         img.src = cardImage[i];
         img.style.width = '80px';
@@ -72,8 +75,10 @@ $(function() {
     //Beginning of the submit button logic
     const submitButton = document.getElementById("submit");
 
+    //Add event listener for clicking of the submit button
     submitButton.addEventListener('click', function () {
         var $lastImage = $("li.flex-item .image-wrapper:last-child");
+	//Give last image the submited card class and remove it from being staged
         $lastImage.addClass("submited-card").removeClass("staged");
 
         //TO DELETE START
@@ -220,9 +225,11 @@ function hideTooltip() {
 }
 //Method for taking in JSON object and converting it to javascript array
 function convertFromJson()
-{
+{	
+    //Placeholder JSON variable
     var JSONstring='{ "cardID1": ["cardType1", "isTagged1"], "cardID2": ["cardType2", "isTagged2"] }'
-    object = JSON.parse(JSONstring), //reads in the JSON
+    //reads in the JSON
+    object = JSON.parse(JSONstring), 
     array = Object.keys(object).map(function(k) 
 	{
 	 //Returns JSON as key:value pair
@@ -242,7 +249,7 @@ function convertFromJson()
 	}
 
 }
-//Method for taking in javascript array and converting it to JSON string
+//Method for taking in JavaScript array and converting it to JSON string
 function convertToJson(jarray)
 {
 	return JSON.stringify(jarray);
