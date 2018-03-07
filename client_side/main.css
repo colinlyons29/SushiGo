@@ -25,6 +25,7 @@ a {
     font-family: Helvetica;
 }
 
+/* Styling for form input on register.py and contact.html */
 input[type=text], input[type=password] {
     width: 30%;
     padding: 12px 20px;
@@ -87,7 +88,7 @@ img {
     margin-right: auto;
 }
 
-/* PLAY BUTTON */
+/* Play button styling */
 .highlight1 .buttonPlay {
     display: inline-block;
     color: #fff;
@@ -119,7 +120,7 @@ img {
 
 .highlight1 {margin-bottom:100px;}
 
-/* STATS BUTTON */
+/* Stats button styling */
 .highlight2 .buttonStats {
     display: inline-block;
     color: #fff;
@@ -151,7 +152,7 @@ img {
 
 .highlight2 {margin-bottom:100px;}
 
-/* LOGOUT BUTTON */
+/* Logout button styling */
 .highlight3 .buttonLogout {
     display: inline-block;
     color: #fff;
@@ -183,7 +184,7 @@ img {
 
 .highlight3 {margin-bottom:100px;}
 
-/* NAVIGATION BAR STYLING */
+/* Navigation button styling */
 ul {
     list-style-type: none;
     margin: 0;
