@@ -1,9 +1,9 @@
 """ Takes in names of two shelves as arguments and uses information from those
     shelves to calculate the points that each player has at the end of the round. """
 
-from pointCalc import *
-from Player import *
-from SelectedCards import *
+from pointCalc import PointCalculator
+from Player import Player
+from SelectedCards import SelectedCards
 from sys import argv
 import shelve as shelve
 
@@ -90,7 +90,7 @@ for k in d.keys():
     lst = d[k]
     sc = SelectedCards(k)
     for c in lst:
-        sc.SelectCard(c)
+        sc.selectCard(c)
     sclst.append(sc)
 d.close()
 
