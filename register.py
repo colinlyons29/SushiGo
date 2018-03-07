@@ -33,7 +33,7 @@ if len(form_data) != 0:
     else:
         try:
             # Connect to DB
-            connection = db.connect('cs1.ucc.ie', 'jp11', 'rahquahv', '2019_jpl1')
+            connection = db.connect('cs1.ucc.ie', 'jp11', 'rahquahv', '2019_jp11')
             cursor = connection.cursor(db.cursors.DictCursor)
             # Todo: Set up tables
             # Check if user already exists
@@ -68,31 +68,47 @@ if len(form_data) != 0:
 print('Content-Type: text/html')
 print()
 print("""
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
     <head>
+
         <title>Register</title>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" >
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+        <link rel="stylesheet" href="main.css">
         %s
+
     </head>
-        <body>
-            <form action="register.py" method="post">
-            <br>
-                <label for="username"><span>User name: </span></label>
-                <input type="text" name="username" id="username" value="%s"><br>
-                <label for="email1"><span>Email: </span></label>
-                <input type="text" name="email1" id="email1"><br>
-                <label for="username"><span>Confirm email: </span></label>
-                <input type="text" name="email2" id="email2"><br>
-                <label for="password1"><span>Password: </span></label>
-                <input type="password" name="password1" id="password1"><br>
-                <label for="passwords2"><span>Re-enter password: </span></label>
-                <input type="password" name="password2" id="password2"><br>
-                <input type="submit" value="Register">
-            </form>
-            %s
-        </body>
-    </html>""" % (redirect ,username, result))
+    <body>
+        <ul>
+            <li><a class="active" href="welcome.html">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="rules.html"How To Play</a></li>
+        </ul>
+                
+        <div class="logo">
+                <img src="Images/sushi_go_logo.png">
+        </div>
+        
+        <div class="form">
+        <form action="register.py" method="post">
+        <br>
+            <label for="username"><span>User name: </span></label>
+            <input type="text" name="username" id="username" value="%s"><br>
+            <label for="email1"><span>Email: </span></label>
+            <input type="text" name="email1" id="email1"><br>
+            <label for="username"><span>Confirm email: </span></label>
+            <input type="text" name="email2" id="email2"><br>
+            <label for="password1"><span>Password: </span></label>
+            <input type="password" name="password1" id="password1"><br>
+            <label for="passwords2"><span>Re-enter password: </span></label>
+            <input type="password" name="password2" id="password2"><br>
+            <input type="submit" value="Register">
+        </form>
+        </div>
+        %s
+    </body>
+</html>""" % (redirect ,username, result))
+
