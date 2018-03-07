@@ -1,0 +1,95 @@
+CREATE TABLE Users (
+    PlayerID int NOT NULL AUTO_INCREMENT,
+    PlayerName varchar(100),
+    PassHash varchar(255),
+    PRIMARY KEY (PlayerID)
+);
+
+
+/*inserts new rows into Users table*/
+INSERT INTO Users (PlayerName, PassHash)
+VALUES ("cdl1","dfgthysdg");
+
+/*When user signs in they should also be put into the GameStats table*/
+INSERT INTO GameStats (PlayerID,PlayerName,GamesWon,TopScore)
+VALUES (4,"their name",0,0);
+
+/*Change the password using the playerID number(for resets)*/
+UPDATE Users
+SET PassHash = "whatever"
+WHERE PlayerID = 3;
+
+/*Change the password using playername/email(for resets)*/
+SELECT PassHash 
+FROM Users
+WHERE PlayerID = 0;
+
+/*Selecting the password hash from username(for login)*/
+SELECT PassHash 
+FROM Users
+WHERE PlayerName = "Name/email";
+
+/*Selecting the password hash from playerID(for login)*/
+SELECT PassHash 
+FROM Users
+WHERE PlayerID = 0;
+
+
+
+
+
+CREATE TABLE GameStats (
+    PlayerID int,
+    PlayerName varchar(100),
+    GamesWon int,
+    TopScore int,
+    GamesPlayed int,
+    PRIMARY KEY (PlayerID)
+);
+
+/*When inserting new rows, get the player name and id from Users table and use gameswon should be 1 or 0*/
+INSERT INTO GameStats (PlayerID,PlayerName,GamesWon,GamesPlayed,TopScore)
+VALUES (5,"kuba",4,10,70);
+
+/*For selecting gameswon and topscore with player id*/
+SELECT GamesWon, TopScore
+FROM GameStats
+WHERE PlayerID = 0;
+
+/*For selecting gameswon and topscore with player name*/
+SELECT GamesWon, TopScore
+FROM GameStats
+WHERE PlayerName = "their name";
+
+/*For updating the gameswon and topscore with a players id*/
+UPDATE GameStats
+SET GamesWon = 2, TopScore = 40
+WHERE PlayerID = 0;
+
+/*For updating the gameswon and topscore with a players name*/
+UPDATE GameStats
+SET GamesWon = 2, TopScore = 40
+WHERE PlayerName = 0;
+
+/*Various other select statements which might be used.*/
+SELECT * from Users WHERE PlayerID =;
+SELECT PlayerName from Users WHERE PlayerID =;
+SELECT PassHash from Users WHERE PlayerID =;
+
+SELECT * from Users WHERE PlayerName =;
+SELECT PlayerID from Users WHERE PlayerName =;
+SELECT PassHash from Users WHERE PlayerName =;
+
+
+
+SELECT * from GameStats WHERE PlayerID =;
+SELECT PlayerName from GameStats WHERE PlayerID =;
+SELECT GamesWon from GameStats WHERE PlayerID =;
+SELECT TopScore from GameStats WHERE PlayerID =;
+SELECT GamesPlayed from GameStats WHERE PlayerID =;
+
+SELECT * from GameStats WHERE PlayerName =;
+SELECT PlayerID from GameStats WHERE PlayerName =;
+SELECT GamesWon from GameStats WHERE PlayerName =;
+SELECT TopScore from GameStats WHERE PlayerName =;
+SELECT GamesPlayed from GameStats WHERE PlayerName =;
