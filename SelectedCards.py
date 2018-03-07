@@ -2,8 +2,12 @@ from queue import *
 
 class SelectedCards(object):
 
-    def __init__(self):
+    def __init__(self, username):
         self._cards = Queue()
+        self._username = username
+
+    def getUsername(self):
+        return self._username
 
     def selectCard(self, card):
         self._cards.put(card)

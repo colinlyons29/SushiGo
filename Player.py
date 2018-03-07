@@ -10,8 +10,14 @@ class Player(object):
     def getMaki(self):
         return self._maki
 
+    def setMaki(self, maki):
+        self._maki = maki
+
     def getPudding(self):
         return self._pudding
+
+    def setPudding(self, pudding):
+        self._pudding = pudding
 
     def getPoints(self):
         return self._points
@@ -30,13 +36,6 @@ class Player(object):
 
     def addPoints(self, num):
         self._points += num
-
-    username = property(getUsername)
-    maki = property(getMaki)
-    pudding = property(getPudding)
-    ip = property(getIP)
-    points = property(getPoints)
-
 
     def __str__(self):
         string = "["
