@@ -13,7 +13,7 @@ tempD = dict()
 for k in d.keys():
     tempD[k] = d[k]
 
-shelve.close()
+d.close()
 
 jsonObj = json.dumps(tempD)
 print(jsonObj)

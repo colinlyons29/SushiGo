@@ -12,4 +12,4 @@ shelveName = argv[2]
 d = shelve.open(shelve)
 for k in tempD:
     d[k] = tempD[k]
-shelve.close()
+d.close()
