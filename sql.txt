@@ -2,14 +2,13 @@ CREATE TABLE Users (
     PlayerID int NOT NULL AUTO_INCREMENT,
     PlayerName varchar(100),
     PassHash varchar(255),
-    HasGoogle BOOLEAN,
     PRIMARY KEY (PlayerID)
 );
 
 
 /*inserts new rows into Users table*/
-INSERT INTO Users (PlayerName, PassHash, HasGoogle)
-VALUES ("cdl1","dfgthysdg","1");
+INSERT INTO Users (PlayerName, PassHash)
+VALUES ("cdl1","dfgthysdg");
 
 /*When user signs in they should also be put into the GameStats table*/
 INSERT INTO GameStats (PlayerID,PlayerName,GamesWon,TopScore)
@@ -44,12 +43,13 @@ CREATE TABLE GameStats (
     PlayerName varchar(100),
     GamesWon int,
     TopScore int,
+    GamesPlayed int,
     PRIMARY KEY (PlayerID)
 );
 
 /*When inserting new rows, get the player name and id from Users table and use gameswon should be 1 or 0*/
-INSERT INTO GameStats (PlayerID,PlayerName,GamesWon,TopScore)
-VALUES (0,"players name",1,20);
+INSERT INTO GameStats (PlayerID,PlayerName,GamesWon,GamesPlayed,TopScore)
+VALUES (5,"kuba",4,10,70);
 
 /*For selecting gameswon and topscore with player id*/
 SELECT GamesWon, TopScore
@@ -75,12 +75,10 @@ WHERE PlayerName = 0;
 SELECT * from Users WHERE PlayerID =;
 SELECT PlayerName from Users WHERE PlayerID =;
 SELECT PassHash from Users WHERE PlayerID =;
-SELECT HasGoogle from Users WHERE PlayerID =;
 
 SELECT * from Users WHERE PlayerName =;
 SELECT PlayerID from Users WHERE PlayerName =;
 SELECT PassHash from Users WHERE PlayerName =;
-SELECT HasGoogle from Users WHERE PlayerName =;
 
 
 
@@ -88,8 +86,10 @@ SELECT * from GameStats WHERE PlayerID =;
 SELECT PlayerName from GameStats WHERE PlayerID =;
 SELECT GamesWon from GameStats WHERE PlayerID =;
 SELECT TopScore from GameStats WHERE PlayerID =;
+SELECT GamesPlayed from GameStats WHERE PlayerID =;
 
 SELECT * from GameStats WHERE PlayerName =;
 SELECT PlayerID from GameStats WHERE PlayerName =;
 SELECT GamesWon from GameStats WHERE PlayerName =;
 SELECT TopScore from GameStats WHERE PlayerName =;
+SELECT GamesPlayed from GameStats WHERE PlayerName =;
