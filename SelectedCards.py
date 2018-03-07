@@ -1,4 +1,3 @@
-from DeckConstructor import *
 from queue import *
 
 class SelectedCards(object):
@@ -14,6 +13,3 @@ class SelectedCards(object):
 
     def size(self):
         return self._cards.qsize()
-
-
-
