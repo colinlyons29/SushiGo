@@ -1,9 +1,9 @@
 """ Creates four players and generates scores for them. Used for testing. """
 
 import shelve as shelve
-from Player import *
-from SelectedCards import *
-from Card import *
+from Player import Player
+from SelectedCards import SelectedCards
+from Card import Card
 
 deck = Card.constructDeck()
 
@@ -23,9 +23,9 @@ d.close()
 d = shelve.open("selectedCardsDB")
 
 sc1 = SelectedCards("p1")
-sc2 = SelectedCards("p1")
-sc3 = SelectedCards("p1")
-sc4 = SelectedCards("p1")
+sc2 = SelectedCards("p2")
+sc3 = SelectedCards("p3")
+sc4 = SelectedCards("p4")
 
 for i in range(8):
     sc1.selectCard(deck[i])
