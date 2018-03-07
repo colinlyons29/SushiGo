@@ -6,7 +6,7 @@ import shelve as shelve
 import json
 from sys import argv
 
-shelveName = argv[2]
+shelveName = argv[1]
 d = shelve.open(shelveName)
 tempD = dict()
 

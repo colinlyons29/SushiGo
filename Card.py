@@ -43,6 +43,8 @@ class Card(object):
     def constructDeck():
         """ Creates a full deck of cards. Each card is represented with a "Card"
             object. Takes no parameters and returns an array of "Card"s. """
+        from random import shuffle
+
         deck = [Card(i, "Sashimi") for i in range(1, 15)]
         deck += [Card(i, "Tempura") for i in range(15, 29)]
         deck += [Card(i, "Dumpling") for i in range(29, 43)]
@@ -54,5 +56,5 @@ class Card(object):
         deck += [Card(i, "Nigiri 1") for i in range(85, 90)]
         deck += [Card(i, "Nigiri 2") for i in range(90, 100)]
         deck += [Card(i, "Nigiri 3") for i in range(100, 105)]
-        deck.shuffle()
+        shuffle(deck)
         return deck

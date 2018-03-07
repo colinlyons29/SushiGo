@@ -87,8 +87,9 @@ d.close()
 sclst = []
 d = shelve.open(scShelve)
 for k in d.keys():
-    sc = SelectedCards()
-    for c in d[k]:
+    lst = d[k]
+    sc = SelectedCards(k)
+    for c in lst:
         sc.SelectCard(c)
     sclst.append(sc)
 d.close()
