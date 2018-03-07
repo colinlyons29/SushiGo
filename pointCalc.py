@@ -81,11 +81,3 @@ class PointCalculator(object):
     def returnScores(self):
 
         return [self._points, self._makiIcons, self._puddingAmount]
-
-
-def main():
-    from PremadeSelectedCards import *
-    from SelectedCards import *
-    cards = PremadeSelectedCards()
-    scores = PointCalculator(cards)
-    print(scores.returnScores())
