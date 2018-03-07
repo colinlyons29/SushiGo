@@ -12,39 +12,43 @@ result=""
 formempty="""
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>eNote</title>
-        <meta charset="UTF-8">  
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
-    </head>
-    <body>
-    </section>
-        <div id="1" class="container">
-        <div id="3">
-    
-        <form method="post" action="">
+<head>
+    <title>eNote</title>
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <ul>
+        <li><a class="active" href="welcome.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="rules.html">How to Play</a></li>
+    </ul>
+            
+    <div class="logo">
+        <img src="Images/sushi_go_logo.png">
+    </div>
+
+    <div class="form">
+        <form action="" method="post">
             <input type="hidden" name="action" value="login">
             <input type="hidden" name="hide" value="">
-        </div>
-        <table class='center'>
-                <tr>
-                    <td></td><td><input type="text" name="email" class="input" placeholder="Email"></td>
-                </tr>
-                <tr>
-                    <td></td><td><input type="password" name="password" class="input" placeholder="Password"></td>
-                </tr>
-                <tr>
-                    <td></td><td><input type="submit" value="submit"></td>
-                </tr> 
-                <p id=registered><a href="register.py">Click here to register!</a></p>
-        </table>
+            <label for="email"><span>Email: </span></label>
+            <input type="text" name="email" class="input" placeholder="Email"><br>
+            <label for="password"><span>Password: </span></label>
+            <input type="password" name="password" class="input" placeholder="Password"><br>
+            <input type="submit" value="submit">
         </form>
-        </div>
-        %s
-        </body>
-        </html>
+    </div>
+    <p id="registered">
+        <a href="register.py" id="register">Click here to register!</a>
+    </p>
+    %s
+</body>
+</html>
 """
 # If data is entered to form
 if len(form_data) != 0:
