@@ -81,7 +81,8 @@ $(function() {
 	//Give last image the submited card class and remove it from being staged
         $lastImage.addClass("submited-card").removeClass("staged");
 
-        //TO DELETE START
+        //Start of code used for testing purposes
+	//Adds random card images to the other player's divs in the same manner displayHand()
         var randomNum2 = Math.floor(Math.random() * cardImage.length);
         var randomNum3 = Math.floor(Math.random() * cardImage.length);
         var randomNum4 = Math.floor(Math.random() * cardImage.length);
@@ -108,7 +109,8 @@ $(function() {
         play2.appendChild(elem2);
         play3.appendChild(elem3);
         play4.appendChild(elem4);
-
+   
+	//Removes the other players cards at the end of the round
         function deleteImages () {   
             var im = 0;
             for (; im < 10; im++) {
@@ -119,7 +121,7 @@ $(function() {
                 i += 1;
             }
         };
-        //TO DELETE END
+        //End of testing code
 
         //End of the round if 7 cards are placed
         if ($(".submited-card").length == 7) {
@@ -137,9 +139,9 @@ $(function() {
             //End of round dialog
             $("#modal-wrapper").removeClass("hidden");
 
-            //TO DELETE START
+            //Start of call to testing code
             deleteImages();
-            //TO DELETE END
+            //End of call to testing code
         };
     });
 
