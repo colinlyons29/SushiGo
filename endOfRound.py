@@ -27,7 +27,9 @@ class EndOfRoundCalculator(object):
 
     def compareMaki(self):
     #Decides who to allocate points to based on their maki rolls
-    #Doesn't seem like a complicated tasks but there needs to be rules for what happens when players tie
+    #Doesn't seem like a complicated task but there needs to be rules for what happens when players tie
+    #makiLeaders is a list off all players that have the most amount of maki roll points
+    #makiSeconds is a list of all players that have the second most amount of maki roll points
         makiMost = 0
         makiSecondAmount = 0
         makiLeaders = []
@@ -67,8 +69,7 @@ class EndOfRoundCalculator(object):
         print("\n")
 
     def printReport(self):
-    #If we want to display scores during the game
-    #we can edit this to send the wanted information
+    #Prints a report of player points earned to the console
         for i in range(4):
             print("Player " + str(i+1) + " at IP: " + self._playerlst[i].ip + " now has " + str(self._playerlst[i].points) + " points and collected " + str(self._playerlst[i].pudding) + " pudding!")
         print("\n")
