@@ -1,7 +1,7 @@
 // Python Shell is initialized
-// arguments declared as the path of python, the arguments for the execution of the shell, and the mode of the argument, which is text by default
-// she shell is run on the declared file, with the arguments
-// a function for catching any errors and displaying the results of execution is present
+// Arguments declared as the path of python, the arguments for the execution of the shell, and the mode of the argument, which is text by default
+// The shell is run on the declared file, with the arguments
+// A function for catching any errors and displaying the results of execution is present
 
 var PythonShell = require('python-shell');
 var options = {
