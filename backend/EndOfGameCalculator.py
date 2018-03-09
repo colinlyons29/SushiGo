@@ -1,7 +1,4 @@
 from Player import *
-from cgitb import enable
-enable()
-import pymysql as db
 from PremadeSelectedCards4 import *
 from EndOfRoundCalculator import *
 class EndOfGameCalculator(object):
@@ -18,36 +15,34 @@ class EndOfGameCalculator(object):
         self.printReport()
 
     def comparePudding(self):
-        #Decides who to allocate points to based on their pudding
-        #Checks if players are tying and acts accordingly based on game rules
-        #puddingLeaders is a list of all players that have the most puddings
-        #puddingLosers is a list of all players who have the least puddings
+        # Decides who to allocate points to based on their pudding
+        # Doesn't seem like a complicated tasks but there needs to be rules for what happens when players tie
         puddingMost = 0
         puddingLeast = 0
         puddingLeaders = []
         puddingLosers = []
         for player in self._playerlst:
-            if player.pudding > 0:
-                if player.pudding > puddingMost:
-                    if puddingLeaders:
-                        if puddingMost <= puddingLeast:
-                            puddingLosers = puddingLeaders
-                            puddingLeast = puddingMost
-                    else:
-                        puddingLeast = player.pudding
-                    puddingLeaders = [player]
-                    puddingMost = player.pudding
 
-                elif player.pudding == puddingMost:
-                    puddingLeaders += [player]
+            if player.pudding > puddingMost:
+                if puddingLeaders:
+                    if puddingMost <= puddingLeast:
+                        puddingLosers = puddingLeaders
+                        puddingLeast = puddingMost
+                else:
+                    puddingLeast = player.pudding
+                puddingLeaders = [player]
+                puddingMost = player.pudding
 
-                elif player.pudding < puddingLeast:
-                    if player.pudding < puddingLeast:
-                        puddingLeast = player.pudding
-                        puddingLosers = [player]
+            elif player.pudding == puddingMost:
+                puddingLeaders += [player]
 
-                elif player.pudding == puddingLeast:
-                    puddingLosers += [player]
+            elif player.pudding < puddingLeast:
+                if player.pudding < puddingLeast:
+                    puddingLeast = player.pudding
+                    puddingLosers = [player]
+
+            elif player.pudding == puddingLeast:
+                puddingLosers += [player]
 
 
         if puddingLeaders:
@@ -66,8 +61,7 @@ class EndOfGameCalculator(object):
         print("\n")
 
     def printReport(self):
-        #Prints the report of the game to the console
-        #Player stats in the database are also updated at this time
+        #This will be updated to return the output to the clients
         winner = None
         points = 0
         ith = 0
@@ -76,16 +70,7 @@ class EndOfGameCalculator(object):
                 winner = self._playerlst[i]
                 ith = i + 1
             print("Player " + str(i+1) + " at IP: " + self._playerlst[i].ip + " now has a final total " + str(self._playerlst[i].points) + " points and collected " + str(self._playerlst[i].pudding) + " pudding!")
-            connection = db.connect('cs1.ucc.ie','jp11','rahquahv','2019_jp11')
-            cursor = connection.cursor(db.cursors.DictCursor)
-            cursor.execute("""UPDATE GameStats
-                                SET TopScore = %i
-                                WHERE PlayerName = %s AND TopScore < %i""", (self._playerlst[i].points,str(i+1),self._playerlst[i].points))
-
-            print("Player " + str(ith) + " at: " + self._playerlst[i].ip + " won!" )
-            cursor.execute("""UPDATE GameStats
-                                SET GamesWon = GamesWon +1
-                                WHERE PlayerName = %s""", (str(ith)))
+        print("Player " + str(ith) + " at: " + self._playerlst[i].ip + " won!" )
 
 
 
