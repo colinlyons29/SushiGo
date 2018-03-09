@@ -1,7 +1,7 @@
 from queue import *
 
 class SelectedCards(object):
-#An class for storing all cards that a player has chosen in a round
+#A class for storing all cards that a player has chosen in a round
 #Inherits from the pyhton in built queue as order matters
 
     def __init__(self):
