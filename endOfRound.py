@@ -27,7 +27,7 @@ class EndOfRoundCalculator(object):
 
     def compareMaki(self):
     #Decides who to allocate points to based on their maki rolls
-    #Doesn't seem like a complicated task but there needs to be rules for what happens when players tie
+    #Checks if players are tying and acts accordingly based on game rules
     #makiLeaders is a list off all players that have the most amount of maki roll points
     #makiSeconds is a list of all players that have the second most amount of maki roll points
         makiMost = 0
