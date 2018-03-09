@@ -22,27 +22,27 @@ class EndOfGameCalculator(object):
         puddingLeaders = []
         puddingLosers = []
         for player in self._playerlst:
+            if player.pudding > 0:
+                if player.pudding > puddingMost:
+                    if puddingLeaders:
+                        if puddingMost <= puddingLeast:
+                            puddingLosers = puddingLeaders
+                            puddingLeast = puddingMost
+                    else:
+                        puddingLeast = player.pudding
+                    puddingLeaders = [player]
+                    puddingMost = player.pudding
 
-            if player.pudding > puddingMost:
-                if puddingLeaders:
-                    if puddingMost <= puddingLeast:
-                        puddingLosers = puddingLeaders
-                        puddingLeast = puddingMost
-                else:
-                    puddingLeast = player.pudding
-                puddingLeaders = [player]
-                puddingMost = player.pudding
+                elif player.pudding == puddingMost:
+                    puddingLeaders += [player]
 
-            elif player.pudding == puddingMost:
-                puddingLeaders += [player]
+                elif player.pudding < puddingLeast:
+                    if player.pudding < puddingLeast:
+                        puddingLeast = player.pudding
+                        puddingLosers = [player]
 
-            elif player.pudding < puddingLeast:
-                if player.pudding < puddingLeast:
-                    puddingLeast = player.pudding
-                    puddingLosers = [player]
-
-            elif player.pudding == puddingLeast:
-                puddingLosers += [player]
+                elif player.pudding == puddingLeast:
+                    puddingLosers += [player]
 
 
         if puddingLeaders:
