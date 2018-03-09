@@ -19,7 +19,7 @@ class EndOfGameCalculator(object):
 
     def comparePudding(self):
         #Decides who to allocate points to based on their pudding
-        #Because of game rules we need checks to detect if people are tying
+        #Checks if players are tying and acts accordingly based on game rules
         #puddingLeaders is a list of all players that have the most puddings
         #puddingLosers is a list of all players who have the least puddings
         puddingMost = 0
