@@ -1,0 +1,212 @@
+body {
+    text-align: center;
+    background: #0a507c;
+    margin: 0px;
+}
+
+/* Leaderboard table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+th { 
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: Helvetica;
+}
+
+/* Styling for form input on register.py and contact.html */
+input[type=text], input[type=password] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+    font-size: 18pt;
+}
+
+input[type=submit], input[type=reset] {
+    color: #fff;
+    background: #4CAF50;
+    margin: 20px;
+    width: 140px;
+    height: 50px;
+    line-height: 40px;
+    border: none;
+    border-radius: 10px;
+    position: relative; 
+    text-transform: uppercase;
+    font-family: Helvetica;
+}
+
+label {
+    display: inline-block;
+    width: 300px;
+    text-align: right;
+    font-size: 20pt;
+    font-family: Helvetica;
+    color: #fff;
+}
+
+.contact_label, h3 {
+	color: #fff;
+    font-size: 18pt;
+    font-family: Helvetica;
+}
+
+#result, h2, #submitted, .header {
+    font-size: 20pt;
+    font-family: Helvetica;
+    color: #fff;
+}
+
+h1 {
+    font-size: 26pt;
+    font-family: Helvetica;
+    color: #fff;
+}
+
+p, #register {
+    font-size: 14pt;
+    font-family: Helvetica;
+    color: #fff;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Play button styling */
+.highlight1 .buttonPlay {
+    display: inline-block;
+    color: #fff;
+    background: #4CAF50;
+    margin: 20px;
+    width: 140px;
+    height: 50px;
+    line-height: 40px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight1 .buttonPlay:before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: -80px;
+    height: 100px;
+    width: 70px;
+    background: rgba(255, 255, 255, .7);
+    transform: rotate(20deg);
+}
+
+.highlight1 .buttonPlay:hover:before {
+    left: 150px;
+    transition: all .5s;
+}
+
+.highlight1 {margin-bottom:100px;}
+
+/* Stats button styling */
+.highlight2 .buttonStats {
+    display: inline-block;
+    color: #fff;
+    background: #FF8C00;
+    margin: 20px;
+    width: 140px;
+    height: 50px;
+    line-height: 40px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight2 .buttonStats:before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: -80px;
+    height: 100px;
+    width: 70px;
+    background: rgba(255, 255, 255, .7);
+    transform: rotate(20deg);
+}
+
+.highlight2 .buttonStats:hover:before {
+    left: 150px;
+    transition: all .5s;
+}
+
+.highlight2 {margin-bottom:100px;}
+
+/* Logout button styling */
+.highlight3 .buttonLogout {
+    display: inline-block;
+    color: #fff;
+    background: darkred;
+    margin: 20px;
+    width: 140px;
+    height: 50px;
+    line-height: 40px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight3 .buttonLogout:before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: -80px;
+    height: 100px;
+    width: 70px;
+    background: rgba(255, 255, 255, .7);
+    transform: rotate(20deg);
+}
+
+.highlight3 .buttonLogout:hover:before {
+    left: 150px;
+    transition: all .5s;
+}
+
+.highlight3 {margin-bottom:100px;}
+
+/* Navigation button styling */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+	position: fixed;
+	width: 100%;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 4px 6px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
