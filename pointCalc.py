@@ -1,4 +1,7 @@
 class PointCalculator(object):
+#A class to calculate the points a player deserves for their selected cards for a round
+#This is done before comparison with other players as most cards don't care about what other players have
+#Cards that care about other players are check in endOfRound.py
 
     def __init__(self, selectedCards):
         self._cards = selectedCards
